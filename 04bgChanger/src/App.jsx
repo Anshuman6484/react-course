@@ -9,7 +9,7 @@ function App() {
     >
       <div className="fixed flex flex-wrap justify-center bottom-8 inset-x-4 px-4 rounded-3xl">
         <div
-          className="flex flex-wrap justify-center gap-3 shadow-lg bg-white px-3 py-2 rounded-3xl font-semibold"
+          className="flex flex-wrap justify-center gap-3 bg-white px-3 py-2 rounded-3xl font-semibold"
           style={{ backgroundColor: '#a9d6e5' }}
         >
           <button
