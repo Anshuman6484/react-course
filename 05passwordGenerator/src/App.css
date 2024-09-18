@@ -1,0 +1,20 @@
+body {
+  /* background: linear-gradient(to top left, #00748f, #00d4ff); */
+  background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+  /* background-image: url('assets/bg-img.avif');
+  background-size: cover; */
+}
+
+#outer-box {
+  /* background-color: #ffffffaf; */
+  background: linear-gradient(to top right, #ffffff15, #ffffff);
+  backdrop-filter: blur(6px);
+}
+
+#btn-copy {
+  background-color: #009af1;
+}
+
+#btn-copy:hover {
+  background-color: #006fa7;
+}
