@@ -1,6 +1,7 @@
 body {
   /* background: linear-gradient(to top left, #00748f, #00d4ff); */
-  background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+  background: linear-gradient(135deg, #00a4e0 0%, #023047 100%);
+  /* background-color: #023047; */
   /* background-image: url('assets/bg-img.jpg');
   background-size: cover; */
 }
@@ -26,7 +27,7 @@ body {
 }
 
 .strength-3 {
-  background-color: #ff4d4d;
+  background-color: #ff0000;
 }
 
 .strength-4 {
@@ -34,22 +35,22 @@ body {
 }
 
 .strength-5 {
-  background-color: #ffd700;
+  background-color: yellow;
 }
 
 .strength-6 {
-  background-color: #4caf50;
+  background-color: #04ff00;
 }
 
-/* .str-3 {
-  color: #ff4d4d;
+.str-3 {
+  color: #ff0000;
 }
 .str-4 {
   color: #ffa500;
 }
 .str-5 {
-  color: #ffd700;
+  color: yellow;
 }
 .str-6 {
-  color: #4caf50;
-} */
+  color: #04ff00;
+}

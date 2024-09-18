@@ -129,7 +129,9 @@ function App() {
             </div>
             <div className="text-md">
               Password Strength :{' '}
-              <span className={`strength-indicator font-semibold`}>
+              <span
+                className={`strength-indicator font-semibold str-${strength}`}
+              >
                 {strength === 3
                   ? 'Weak'
                   : strength === 4
