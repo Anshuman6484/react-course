@@ -6,10 +6,12 @@ function App() {
   const [num, setNum] = useState(false)
   const [char, setChar] = useState(false)
   const [password, setPassword] = useState('')
+  const [strength, setStrength] = useState(0)
 
   // useRef hook
   const passwordRef = useRef(null)
 
+  // generate random password
   const passwordGenerator = useCallback(() => {
     let pass = ''
     let str = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz'
@@ -22,8 +24,26 @@ function App() {
     }
 
     setPassword(pass)
+    setStrength(evaluateStrength(pass))
   }, [length, num, char])
 
+  // evaluate strength
+  const evaluateStrength = (pass) => {
+    let strength = 0
+
+    // checking strength
+    if (pass.length >= 8) strength++
+    if (pass.length >= 12) strength++
+    if (/[A-Z]/.test(pass)) strength++
+
+    if (/[a-z]/.test(pass)) strength++
+    if (/[0-9]/.test(pass)) strength++
+    if (/[~!@#$%^&*_\-+=?]/.test(pass)) strength++
+
+    return strength
+  }
+
+  // copy to clip board
   const copyPasswordtoClipboard = useCallback(() => {
     passwordRef.current?.select()
     window.navigator.clipboard.writeText(password)
@@ -43,10 +63,10 @@ function App() {
       <div className="w-full h-screen flex justify-center items-center">
         <div
           id="outer-box"
-          className="w-full max-w-md mx-auto flex-wrap shadow-lg shadow-slate-800 rounded-lg px-4 py-3 my-8"
+          className="w-full max-w-xl mx-auto flex-wrap shadow-lg shadow-slate-800 rounded-lg px-4 py-3 my-8"
           // style={{ color: '#2CF129', backgroundColor: '#001823' }}
         >
-          <h1 className="text-center text-2xl mb-4 my-2">
+          <h1 className="text-center text-2xl mb-4 my-2 font-bold">
             Random Password Generator
           </h1>
           <div className="flex shadow-md shadow-slate-800 rounded-lg overflow-hidden mb-4">
@@ -66,7 +86,7 @@ function App() {
               Copy
             </button>
           </div>
-          <div className="flex text-sm gap-x-4">
+          <div className="flex items-center justify-center text-md gap-x-4 m-3 font-medium">
             <div className="flex items-center gap-x-1">
               <input
                 type="range"
@@ -102,6 +122,46 @@ function App() {
               />
               <label htmlFor="charInput">Characters</label>
             </div>
+          </div>
+          <div className="flex flex-col items-center justify-center m-3 text-lg">
+            <div className="text-lg">
+              Generated Password : <span className="font-bold">{password}</span>
+            </div>
+            <div className="text-md">
+              Password Strength :{' '}
+              <span className={`strength-indicator font-semibold`}>
+                {strength === 3
+                  ? 'Weak'
+                  : strength === 4
+                  ? 'Moderate'
+                  : strength === 5
+                  ? 'Strong'
+                  : 'Very Strong'}
+              </span>
+            </div>
+          </div>
+          <div className="relative w-full h-2 bg-white rounded">
+            <div
+              className={`absolute h-full rounded transition-all duration-300 ${
+                strength === 3
+                  ? 'strength-3'
+                  : strength === 4
+                  ? 'strength-4'
+                  : strength === 5
+                  ? 'strength-5'
+                  : 'strength-6'
+              }`}
+              style={{
+                width:
+                  strength === 3
+                    ? '25%'
+                    : strength === 4
+                    ? '50%'
+                    : strength === 5
+                    ? '75%'
+                    : '100%',
+              }}
+            ></div>
           </div>
         </div>
       </div>
