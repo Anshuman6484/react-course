@@ -33,7 +33,7 @@ export default function Home() {
         <div className="absolute inset-0 w-full sm:my-20 sm:pt-1 pt-12 h-full ">
           <img
             className="w-96"
-            src="https://github.com/Anshuman6484/react-course/blob/main/07reactRouter/src/components/images/home1.jpg"
+            src="/images/home1.jpg"
             alt="image1"
           />
         </div>
@@ -42,7 +42,7 @@ export default function Home() {
       <div className="grid  place-items-center sm:mt-20">
         <img
           className="sm:w-96 w-48"
-          src="07reactRouter\src\components\images\home2.jpg"
+          src="/images/home2.jpg"
           alt="image2"
         />
       </div>
